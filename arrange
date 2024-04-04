@@ -1,0 +1,10 @@
+#!/bin/bash
+path=$(pwd)
+for file in "files"/*; do
+    filename=$(basename "$file")
+    firstname="${filename:0:1}"
+    if [[ $firstname == [A-Z] ]]; then
+        firstname=$(echo "$firstname"|tr '[:upper:]' '[:lower:]')
+    fi
+    mv "$file" "$path/$firstname"
+done
